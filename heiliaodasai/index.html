@@ -1,0 +1,1214 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黑料大赛-赛制规则与参赛作品解析</title>
+<meta name="description" content="黑料大赛是围绕争议事件证据整理展开的公开竞赛，比拼时间线还原与来源交叉核验。本页梳理赛制规则、往届选题、评分维度，并附参赛作品拆解与观众评论，帮助新选手判断素材可信度与投稿方向。">
+<meta name="keywords" content="黑料大赛">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f2433'/%3E%3Cpath d='M18 46 30 18h6l12 28h-7l-2.4-6H27.4L25 46z' fill='%23e8b04b'/%3E%3Ccircle cx='32' cy='34' r='3' fill='%23e8b04b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b1f2a;
+  --ink-2:#3d4557;
+  --muted:#6b7386;
+  --line:#dfe3ec;
+  --bg:#f6f7fa;
+  --card:#ffffff;
+  --brand:#1f2433;
+  --brand-2:#2c3448;
+  --accent:#b8862b;
+  --accent-soft:#f6ecd8;
+  --danger:#8c3b2f;
+  --ok:#2f6b4f;
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow:0 1px 2px rgba(27,31,42,.06),0 6px 18px rgba(27,31,42,.05);
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --annc-h:40px;
+  --head-h:64px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--annc-h) + var(--head-h) + 12px)}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--font);font-size:16px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- 吸顶公告条 ---------- */
+.annc{
+  position:sticky;top:0;z-index:60;height:var(--annc-h);
+  background:var(--brand);color:#e9dcc0;
+  display:flex;align-items:center;font-size:13px;
+  border-bottom:1px solid rgba(232,176,75,.28);
+}
+.annc .wrap{display:flex;align-items:center;gap:12px;overflow:hidden}
+.annc .tag{
+  flex:none;background:var(--accent);color:#241a06;font-weight:700;
+  font-size:12px;padding:2px 8px;border-radius:4px;letter-spacing:.5px;
+}
+.annc p{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.annc a{color:#f3d99a;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.annc time{color:#c9b78f;flex:none}
+
+/* ---------- 页头 ---------- */
+.head{
+  position:sticky;top:var(--annc-h);z-index:55;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.head .wrap{height:var(--head-h);display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.brand svg{display:block}
+.brand b{font-size:19px;letter-spacing:.5px;color:var(--brand)}
+.brand small{display:block;font-size:11px;color:var(--muted);font-weight:400;letter-spacing:1px}
+.nav{display:flex;gap:2px;margin-left:8px;flex:1;min-width:0}
+.nav a{
+  text-decoration:none;font-size:14px;color:var(--ink-2);
+  padding:8px 11px;border-radius:8px;white-space:nowrap;
+}
+.nav a:hover{background:var(--bg);color:var(--brand)}
+.nav a:focus-visible,.btn:focus-visible,summary:focus-visible,.menu-btn:focus-visible,.tag:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.head-actions{display:flex;align-items:center;gap:8px;flex:none}
+.search{position:relative}
+.search input{
+  width:190px;padding:8px 12px 8px 32px;border:1px solid var(--line);
+  border-radius:20px;background:var(--bg);font-size:13px;color:var(--ink);
+}
+.search input:focus{outline:none;border-color:var(--accent);background:#fff}
+.search .ico{position:absolute;left:10px;top:50%;transform:translateY(-50%);opacity:.5}
+.search-fb{
+  position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;
+  border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:var(--shadow);
+  font-size:13px;padding:10px 12px;color:var(--muted);display:none;
+}
+.search-fb.show{display:block}
+.search-fb b{color:var(--ink)}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;justify-content:center;
+  padding:9px 16px;border-radius:8px;font-size:14px;font-weight:600;
+  text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .15s;
+}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-2);transform:translateY(-1px)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink-2)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--brand)}
+.menu-btn{display:none;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;cursor:pointer}
+
+/* ---------- 首屏 ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#fbf7ee 0%,#f4f6fa 46%,#eef1f7 100%);border-bottom:1px solid var(--line)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;padding-top:52px;padding-bottom:52px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);font-weight:700;letter-spacing:1px}
+.hero-eyebrow::before{content:"";width:22px;height:2px;background:var(--accent)}
+.hero h1{font-size:clamp(30px,4.4vw,46px);letter-spacing:1px;margin:12px 0 0;color:var(--brand)}
+.hero .lead{margin-top:16px;font-size:16px;color:var(--ink-2);max-width:34em}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hero-meta span{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:5px 13px;color:var(--ink-2)}
+.hero-meta b{color:var(--accent)}
+.hero-cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.hero-visual{position:relative;min-height:300px}
+.hero-visual svg{width:100%;height:auto;display:block}
+.hero-note{
+  position:absolute;right:0;bottom:0;background:#fff;border:1px solid var(--line);
+  border-left:3px solid var(--accent);border-radius:8px;padding:10px 14px;font-size:12.5px;
+  color:var(--ink-2);box-shadow:var(--shadow);max-width:230px;
+}
+.hero-note b{color:var(--brand);display:block;font-size:13px}
+
+/* ---------- 主体布局 ---------- */
+.layout{display:grid;grid-template-columns:246px minmax(0,1fr);gap:30px;padding-top:38px;padding-bottom:52px}
+.side{position:relative}
+.side-inner{position:sticky;top:calc(var(--annc-h) + var(--head-h) + 18px)}
+.side-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:16px}
+.side-card h4{font-size:13px;color:var(--muted);letter-spacing:1px;font-weight:700;margin-bottom:10px}
+.side-nav a{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;
+  text-decoration:none;font-size:14px;color:var(--ink-2);padding:7px 10px;border-radius:7px;border-left:2px solid transparent;
+}
+.side-nav a:hover{background:var(--bg)}
+.side-nav a.active{background:var(--accent-soft);border-left-color:var(--accent);color:var(--brand);font-weight:600}
+.side-nav a i{font-style:normal;font-size:11.5px;color:var(--muted)}
+.side-links a{display:block;text-decoration:none;font-size:13.5px;color:var(--ink-2);padding:6px 0;border-bottom:1px dashed var(--line)}
+.side-links a:last-child{border-bottom:0}
+.side-links a:hover{color:var(--accent)}
+.side-tip{font-size:12.5px;color:var(--muted);line-height:1.7}
+
+/* ---------- 板块通用 ---------- */
+.sec{margin-bottom:42px;scroll-margin-top:calc(var(--annc-h) + var(--head-h) + 12px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sec-head h2{font-size:21px;color:var(--brand);display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:"";width:4px;height:20px;background:var(--accent);border-radius:2px}
+.sec-head p{font-size:13px;color:var(--muted);text-align:right;flex:none;max-width:22em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.meta{font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:4px;background:var(--accent-soft);color:#7a5a17;font-weight:600}
+.badge-ok{background:#e5f1ea;color:var(--ok)}
+.badge-warn{background:#f7e6e2;color:var(--danger)}
+.badge-neutral{background:#eceef4;color:var(--ink-2)}
+
+/* 领域概览 */
+.overview{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.ov-main{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.ov-main p{font-size:15px;color:var(--ink-2);margin-bottom:12px}
+.ov-main p:last-child{margin-bottom:0}
+.ov-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:26px;color:var(--brand);letter-spacing:.5px}
+.stat span{font-size:12.5px;color:var(--muted)}
+.stat em{font-style:normal;font-size:11.5px;color:var(--accent);display:block;margin-top:4px}
+
+/* 精选内容 */
+.feat{overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .18s}
+.feat:hover{transform:translateY(-3px)}
+.feat img{width:100%;height:148px;object-fit:cover}
+.feat-body{padding:14px 16px 16px}
+.feat-body h3{font-size:15.5px;color:var(--brand);margin-bottom:8px}
+.feat-body p{font-size:13.5px;color:var(--ink-2)}
+.feat-body .meta{margin-top:10px}
+
+/* 最新更新 */
+.list-block{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.upd{display:flex;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line);align-items:flex-start}
+.upd:last-child{border-bottom:0}
+.upd time{flex:none;font-size:12.5px;color:var(--muted);width:64px;padding-top:2px}
+.upd .dot{flex:none;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-top:9px}
+.upd-body{min-width:0}
+.upd-body h3{font-size:14.5px;color:var(--brand);margin-bottom:4px}
+.upd-body p{font-size:13px;color:var(--ink-2)}
+.upd-body .badge{margin-top:6px}
+
+/* 分类入口 */
+.cats{display:flex;flex-wrap:wrap;gap:10px}
+.cat{
+  text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:8px;
+  padding:9px 14px;font-size:13.5px;color:var(--ink-2);transition:.15s;box-shadow:var(--shadow);
+}
+.cat:hover{border-color:var(--accent);color:var(--brand);transform:translateY(-2px)}
+.cat b{font-weight:400;color:var(--muted);font-size:12px;margin-left:6px}
+
+/* 深度解析 */
+.article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow)}
+.article h2{font-size:22px;color:var(--brand);margin-bottom:8px}
+.article .meta{padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.article h3{font-size:17px;color:var(--brand);margin:26px 0 10px;padding-left:12px;border-left:3px solid var(--accent)}
+.article p{font-size:15px;color:var(--ink-2);margin-bottom:12px}
+.article p:last-child{margin-bottom:0}
+.article blockquote{
+  margin:16px 0;padding:12px 16px;background:var(--bg);border-left:3px solid var(--line);
+  font-size:14px;color:var(--ink-2);border-radius:0 8px 8px 0;
+}
+.article blockquote b{color:var(--danger)}
+.verify{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+.verify th,.verify td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+.verify th{background:var(--bg);color:var(--muted);font-weight:600;font-size:12.5px;white-space:nowrap}
+.verify td:first-child{white-space:nowrap;color:var(--ink);font-weight:600}
+.verify .yes{color:var(--ok)}
+.verify .no{color:var(--danger)}
+.verify .part{color:var(--accent)}
+
+/* 体验指南 步骤 */
+.steps{counter-reset:step;display:grid;gap:14px}
+.step{
+  counter-increment:step;position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px 20px 18px 62px;box-shadow:var(--shadow);
+}
+.step::before{
+  content:counter(step,decimal-leading-zero);position:absolute;left:16px;top:16px;
+  width:32px;height:32px;border-radius:8px;background:var(--brand);color:#f3d99a;
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;
+}
+.step h3{font-size:15.5px;color:var(--brand);margin-bottom:6px}
+.step p{font-size:13.5px;color:var(--ink-2)}
+.step .meta{margin-top:8px}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.compare > div{padding:20px}
+.compare .col-a{background:#fff}
+.compare .col-b{background:#fbf9f4;border-left:1px solid var(--line)}
+.compare h3{font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.compare ul li{font-size:13.5px;color:var(--ink-2);padding:7px 0 7px 18px;position:relative;border-bottom:1px dashed var(--line)}
+.compare ul li:last-child{border-bottom:0}
+.compare ul li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%}
+.col-a ul li::before{background:var(--ok)}
+.col-b ul li::before{background:var(--accent)}
+
+/* FAQ */
+details.faq{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:10px;box-shadow:var(--shadow)}
+details.faq summary{
+  cursor:pointer;padding:14px 18px;font-size:15px;font-weight:600;color:var(--brand);
+  list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";font-size:18px;color:var(--accent);flex:none;transition:transform .2s}
+details.faq[open] summary::after{transform:rotate(45deg)}
+details.faq .ans{padding:0 18px 16px;font-size:14px;color:var(--ink-2)}
+details.faq .ans b{color:var(--brand)}
+
+/* 评论 */
+.cmts{display:grid;gap:14px}
+.cmt{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+.cmt-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:#fff;flex:none}
+.cmt-top b{font-size:13.5px;color:var(--brand)}
+.cmt-top span{font-size:12px;color:var(--muted)}
+.cmt p{font-size:14px;color:var(--ink-2)}
+.cmt .ref{font-size:12.5px;color:var(--accent);margin-top:8px;display:block}
+
+/* 资讯 */
+.news{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.news li{padding:14px 18px;border-bottom:1px solid var(--line)}
+.news li:last-child{border-bottom:0}
+.news a{text-decoration:none;font-size:14.5px;color:var(--brand);font-weight:600;display:block;margin-bottom:4px}
+.news a:hover{color:var(--accent)}
+.news p{font-size:13px;color:var(--muted)}
+
+/* 推荐标签 */
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags a{
+  text-decoration:none;font-size:13px;padding:6px 12px;border-radius:20px;
+  background:#fff;border:1px solid var(--line);color:var(--ink-2);transition:.15s;
+}
+.tags a:hover{background:var(--accent-soft);border-color:var(--accent);color:#7a5a17}
+
+/* 榜单 */
+.rank{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.rank ol{counter-reset:rk}
+.rank li{
+  counter-increment:rk;display:flex;gap:14px;align-items:flex-start;
+  padding:14px 18px;border-bottom:1px solid var(--line);
+}
+.rank li:last-child{border-bottom:0}
+.rank li::before{
+  content:counter(rk);flex:none;width:24px;height:24px;border-radius:6px;
+  background:var(--bg);color:var(--muted);font-size:12.5px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.rank li:nth-child(-n+3)::before{background:var(--brand);color:#f3d99a}
+.rank h3{font-size:14.5px;color:var(--brand);margin-bottom:3px}
+.rank p{font-size:12.5px;color:var(--muted)}
+
+/* 页脚 */
+.foot{background:var(--brand);color:#c5cbdb;padding:44px 0 26px;font-size:13.5px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.foot h4{font-size:13px;color:#f0e2c2;letter-spacing:1px;margin-bottom:12px}
+.foot a{text-decoration:none;color:#c5cbdb;display:block;padding:4px 0;font-size:13px}
+.foot a:hover{color:#f3d99a}
+.foot .fbrand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.foot .fbrand b{color:#fff;font-size:17px}
+.foot p{font-size:13px;line-height:1.8;color:#a9b1c4}
+.foot .sample{margin-top:14px;font-size:12px;color:#8d95a9;border:1px dashed #3c4459;border-radius:8px;padding:10px 12px}
+.foot-btm{border-top:1px solid #343b4e;margin-top:30px;padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:#8d95a9}
+
+/* 回到顶部 */
+.top-btn{
+  position:fixed;right:20px;bottom:24px;z-index:50;width:44px;height:44px;border-radius:50%;
+  background:var(--brand);color:#f3d99a;border:1px solid #3b4considered;border:1px solid #3b4358;
+  cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(27,31,42,.28);
+}
+.top-btn.show{display:flex}
+.top-btn:hover{background:var(--brand-2)}
+
+/* 响应式 */
+@media (max-width:1000px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .side{order:2}
+  .main{order:1}
+  .side-inner{position:static}
+  .side-nav{display:flex;flex-wrap:wrap;gap:6px}
+  .side-nav a{border-left:0;background:var(--bg)}
+  .hero .wrap{grid-template-columns:1fr;gap:26px;padding-top:38px;padding-bottom:38px}
+  .hero-visual{min-height:0;order:-1}
+  .hero-note{position:static;max-width:none;margin-top:12px}
+  .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .overview{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .head .wrap{gap:10px}
+  .nav{
+    display:none;position:absolute;left:0;right:0;top:var(--head-h);
+    background:#fff;border-bottom:1px solid var(--line);flex-direction:column;
+    padding:10px 16px 16px;gap:2px;box-shadow:0 12px 24px rgba(27,31,42,.08);
+  }
+  .nav.open{display:flex}
+  .nav a{padding:11px 10px;border-radius:8px}
+  .menu-btn{display:block}
+  .search input{width:132px}
+  .grid-2,.grid-3{grid-template-columns:minmax(0,1fr)}
+  .ov-stats{grid-template-columns:1fr 1fr}
+  .compare{grid-template-columns:1fr}
+  .compare .col-b{border-left:0;border-top:1px solid var(--line)}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .sec-head p{text-align:left;max-width:none}
+  .article{padding:20px 18px}
+  .article h2{font-size:19px}
+  .foot-grid{grid-template-columns:1fr;gap:22px}
+  .annc .wrap{gap:8px}
+  .annc time{display:none}
+  .hero h1{letter-spacing:0}
+  .top-btn{right:14px;bottom:16px;width:40px;height:40px}
+}
+@media (max-width:400px){
+  .wrap{padding-left:14px;padding-right:14px}
+  .search input{width:96px;font-size:12px;padding-left:28px}
+  .brand small{display:none}
+  .hero-meta span{font-size:12px;padding:4px 10px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .feat:hover,.cat:hover,.btn-primary:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="annc" role="region" aria-label="站内公告">
+  <div class="wrap">
+    <span class="tag">赛程</span>
+    <p>第 14 季投稿通道 11 月 5 日关闭，本轮共收到 386 份作品，初筛名单 11 月 9 日在「赛程与名单」栏目公布。</p>
+    <time datetime="2026-11-08">2026-11-08</time>
+    <a href="/#latest">查看更新</a>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="head">
+  <div class="wrap">
+    <a class="brand" href="/#top" aria-label="黑料大赛 首页">
+      <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1f2433"/>
+        <path d="M18 46 30 18h6l12 28h-7l-2.4-6H27.4L25 46z" fill="#e8b04b"/>
+        <circle cx="32" cy="34" r="3" fill="#e8b04b"/>
+        <path d="M14 50h36" stroke="#e8b04b" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+      </svg>
+      <span><b>黑料大赛</b><small>证据整理 · 公开竞赛</small></span>
+    </a>
+    <nav class="nav" id="siteNav" aria-label="主题导航">
+      <a href="/#overview">赛事概览</a>
+      <a href="/#featured">精选作品</a>
+      <a href="/#latest">最新更新</a>
+      <a href="/#channels">频道索引</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#rank">榜单</a>
+    </nav>
+    <div class="head-actions">
+      <div class="search">
+        <svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7386" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="q" placeholder="搜作品、选手、规则" aria-label="站内搜索">
+        <div class="search-fb" id="fb" role="status" aria-live="polite"></div>
+      </div>
+      <a class="btn btn-primary" href="/#guide">参赛说明</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav" aria-label="展开导航菜单">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f2433" stroke-width="2.2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="hero-eyebrow">第 14 季 · 证据为王</span>
+      <h1>黑料大赛</h1>
+      <p class="lead">把公开争议事件做成可复核的长图与时间线：选手提交证据包，评审按来源等级、时间戳完整度和交叉引用数打分。一轮作品 386 份，平均单份附 11 条原始链接，最长的时间线覆盖 41 天。</p>
+      <div class="hero-meta">
+        <span>参赛作品 <b>386</b> 份</span>
+        <span>通过初筛 <b>92</b> 份</span>
+        <span>评审席位 <b>7</b> 人</span>
+        <span>本轮截止 <b>11-05</b></span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/#featured">看精选作品</a>
+        <a class="btn btn-ghost" href="/#deep">读评分解析</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 420 300" role="img">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f7eeda"/><stop offset="1" stop-color="#e8ecf5"/>
+          </linearGradient>
+        </defs>
+        <rect x="6" y="10" width="408" height="280" rx="16" fill="url(#g1)" stroke="#dfe3ec"/>
+        <rect x="30" y="36" width="140" height="16" rx="4" fill="#1f2433" opacity=".85"/>
+        <rect x="30" y="62" width="96" height="9" rx="4" fill="#b8862b" opacity=".8"/>
+        <g stroke="#c9d0de" stroke-width="1.5">
+          <path d="M46 118h360" stroke-dasharray="4 5"/>
+          <path d="M46 158h360" stroke-dasharray="4 5"/>
+          <path d="M46 198h360" stroke-dasharray="4 5"/>
+          <path d="M46 238h360" stroke-dasharray="4 5"/>
+        </g>
+        <g font-family="PingFang SC,sans-serif" font-size="10" fill="#6b7386">
+          <text x="30" y="112">10-14</text>
+          <text x="30" y="152">10-22</text>
+          <text x="30" y="192">10-30</text>
+          <text x="30" y="232">11-05</text>
+        </g>
+        <g>
+          <circle cx="118" cy="118" r="9" fill="#b8862b"/>
+          <rect x="100" y="96" width="36" height="7" rx="3" fill="#b8862b" opacity=".35"/>
+          <circle cx="214" cy="158" r="9" fill="#1f2433"/>
+          <rect x="196" y="136" width="36" height="7" rx="3" fill="#1f2433" opacity=".28"/>
+          <circle cx="300" cy="198" r="9" fill="#2f6b4f"/>
+          <rect x="282" y="176" width="36" height="7" rx="3" fill="#2f6b4f" opacity=".28"/>
+          <circle cx="368" cy="238" r="9" fill="#8c3b2f"/>
+          <rect x="350" y="216" width="36" height="7" rx="3" fill="#8c3b2f" opacity=".28"/>
+        </g>
+        <path d="M118 118 214 158 300 198 368 238" fill="none" stroke="#1f2433" stroke-width="2" opacity=".35"/>
+        <g transform="translate(268 40)">
+          <rect width="124" height="64" rx="10" fill="#fff" stroke="#dfe3ec"/>
+          <rect x="12" y="14" width="56" height="7" rx="3" fill="#1f2433" opacity=".7"/>
+          <rect x="12" y="28" width="92" height="5" rx="2" fill="#c9d0de"/>
+          <rect x="12" y="40" width="72" height="5" rx="2" fill="#c9d0de"/>
+          <rect x="12" y="52" width="40" height="5" rx="2" fill="#b8862b"/>
+        </g>
+      </svg>
+      <div class="hero-note"><b>评审口径</b>原始截图需带设备状态栏，转述内容单列，不计入交叉引用。</div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="layout">
+
+    <!-- 侧栏 -->
+    <aside class="side" aria-label="频道导航与工具">
+      <div class="side-inner">
+        <div class="side-card">
+          <h4>频道导航</h4>
+          <nav class="side-nav" id="sideNav" aria-label="板块锚点">
+            <a href="/#overview">赛事概览 <i>规则</i></a>
+            <a href="/#featured">精选作品 <i>12</i></a>
+            <a href="/#latest">最新更新 <i>6</i></a>
+            <a href="/#channels">频道索引 <i>11</i></a>
+            <a href="/#deep">深度解析 <i>1</i></a>
+            <a href="/#guide">体验指南 <i>5</i></a>
+            <a href="/#compare">路径对照 <i>2</i></a>
+            <a href="/#faq">常见问题 <i>6</i></a>
+            <a href="/#comments">用户评论 <i>5</i></a>
+            <a href="/#news">相关资讯 <i>4</i></a>
+            <a href="/#rank">综合榜单 <i>6</i></a>
+            <a href="/#tags">相关推荐 <i>10</i></a>
+          </nav>
+        </div>
+        <div class="side-card">
+          <h4>快速入口</h4>
+          <div class="side-links">
+            <a href="/#guide">投稿格式清单</a>
+            <a href="/#deep">评分维度说明</a>
+            <a href="/#latest">初筛名单公告</a>
+            <a href="/#faq">可否匿名参赛</a>
+          </div>
+        </div>
+        <div class="side-card">
+          <h4>本轮提醒</h4>
+          <p class="side-tip">11 月 5 日 23:59 后不再接收补交证据。已提交的作品可在 11 月 7 日前撤回重投一次，撤回后原编号作废。</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 主内容 -->
+    <main class="main">
+
+      <!-- 1 领域概览 -->
+      <section class="sec" id="overview">
+        <div class="sec-head">
+          <h2>赛事概览</h2>
+          <p>面向公开争议事件的证据整理竞赛</p>
+        </div>
+        <div class="overview">
+          <div class="ov-main">
+            <p>这类竞赛的参赛对象是一段公开争议：明星代言翻车、平台规则变更、品牌售后扯皮、账号内容抄袭。选手需要交一份可点击核查的材料包，包含原始截图、发布时间、账号主页、转述来源分级，以及一段不超过 800 字的结论。</p>
+            <p>评审不评立场，只评证据链是否闭合。第 13 季起新增「反证栏」，要求选手主动列出对自己结论不利的两条材料，否则扣分。第 14 季把反证栏权重从 5 分提到 8 分，总分仍为 100。</p>
+            <p>参与人群以媒体从业者、法学生、品牌公关和兴趣型整理者为主。第 14 季 386 份作品中，有 117 份来自非媒体行业，占比比第 12 季高 9 个百分点。</p>
+          </div>
+          <div class="ov-stats">
+            <div class="stat"><b>100 分</b><span>单轮满分</span><em>证据链 40 / 时间线 20</em></div>
+            <div class="stat"><b>7 人</b><span>评审席位</span><em>3 媒体 + 2 法务 + 2 网友</em></div>
+            <div class="stat"><b>11 条</b><span>平均原始链接数</span><em>第 13 季为 8 条</em></div>
+            <div class="stat"><b>41 天</b><span>最长覆盖时间跨度</span><em>作品编号 B-221</em></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 精选作品 -->
+      <section class="sec" id="featured">
+        <div class="sec-head">
+          <h2>精选作品推荐</h2>
+          <p>评审初筛后标记为「可复核」的三份</p>
+        </div>
+        <div class="grid-3">
+          <a class="card feat" href="/#deep">
+            <img src="https://picsum.photos/seed/heiliao-timeline/560/300" width="560" height="300" loading="lazy" alt="手写时间线卡片铺在桌面上，标注不同日期的截图编号" style="object-fit:cover">
+            <div class="feat-body">
+              <h3>代言解约时间线：从官宣到撤稿的 9 天</h3>
+              <p>汇总品牌官微、工作室声明、电商页面下架三类痕迹，标出两条互相矛盾的发布时间。</p>
+              <div class="meta"><span class="badge">时间线</span><span>编号 B-104</span><span>92 分</span></div>
+            </div>
+          </a>
+          <a class="card feat" href="/#deep">
+            <img src="https://picsum.photos/seed/heiliao-screenshot/560/300" width="560" height="300" loading="lazy" alt="多张手机截图按顺序排列，边角有红框标注" style="object-fit:cover">
+            <div class="feat-body">
+              <h3>截图层级判定：三张图里哪张能当原件</h3>
+              <p>对比带状态栏截图、二次转发图、纯文字转述，给出可操作的判定顺序和扣分点。</p>
+              <div class="meta"><span class="badge badge-ok">证据链</span><span>编号 B-187</span><span>89 分</span></div>
+            </div>
+          </a>
+          <a class="card feat" href="/#deep">
+            <img src="https://picsum.photos/seed/heiliao-note/560/300" width="560" height="300" loading="lazy" alt="笔记本上贴着便利贴，写有来源分级与日期" style="object-fit:cover">
+            <div class="feat-body">
+              <h3>售后扯皮案：客服话术的三次改动</h3>
+              <p>把四段客服对话按时间编号，指出第二段与第四段在退货口径上的直接冲突。</p>
+              <div class="meta"><span class="badge badge-warn">争议点</span><span>编号 B-263</span><span>87 分</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="sec" id="latest">
+        <div class="sec-head">
+          <h2>最新更新</h2>
+          <p>赛程、名单与规则调整的当日记录</p>
+        </div>
+        <div class="list-block">
+          <div class="upd">
+            <time datetime="2026-11-08">11-08</time>
+            <span class="dot" aria-hidden="true"></span>
+            <div class="upd-body">
+              <h3>第 14 季初筛结果公示，92 份作品进入复审</h3>
+              <p>淘汰主因集中在两处：原始链接少于 5 条，或结论段落没有标注对应证据编号。</p>
+              <span class="badge">名单</span>
+            </div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-11-07">11-07</time>
+            <span class="dot" aria-hidden="true"></span>
+            <div class="upd-body">
+              <h3>撤回重投通道关闭，累计 27 人使用</h3>
+              <p>重投作品重新编号，旧编号在榜单中标记为作废，不计入历史成绩。</p>
+            </div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-11-05">11-05</time>
+            <span class="dot" aria-hidden="true"></span>
+            <div class="upd-body">
+              <h3>投稿截止，最后一小时收到 41 份</h3>
+              <p>其中 9 份因附件超出 20MB 上限被退回，系统记录显示退回时间为 23:47 至 23:59。</p>
+            </div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-11-03">11-03</time>
+            <span class="dot" aria-hidden="true"></span>
+            <div class="upd-body">
+              <h3>评分细则第 4 版发布，反证栏权重上调</h3>
+              <p>反证栏从 5 分增至 8 分，证据链部分相应从 43 分降到 40 分，其余维度不变。</p>
+              <span class="badge badge-warn">规则变更</span>
+            </div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-10-29">10-29</time>
+            <span class="dot" aria-hidden="true"></span>
+            <div class="upd-body">
+              <h3>评审团补入一名法务，现为 7 人</h3>
+              <p>补入者负责核对涉及名誉权与隐私边界的材料，其打分不参与创意分。</p>
+            </div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-10-24">10-24</time>
+            <span class="dot" aria-hidden="true"></span>
+            <div class="upd-body">
+              <h3>第 14 季选题池开放，共 18 个事件</h3>
+              <p>选手可在选题池外自选，但需自行说明事件为何具备公开可查的原始材料。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 频道索引 -->
+      <section class="sec" id="channels">
+        <div class="sec-head">
+          <h2>频道索引</h2>
+          <p>按事件类型与材料形态划分的 11 个频道</p>
+        </div>
+        <div class="cats">
+          <a class="cat" href="/#featured">代言翻车复盘 <b>48</b></a>
+          <a class="cat" href="/#featured">客服话术对比 <b>33</b></a>
+          <a class="cat" href="/#featured">账号内容抄袭认定 <b>29</b></a>
+          <a class="cat" href="/#featured">平台规则变更追踪 <b>41</b></a>
+          <a class="cat" href="/#featured">直播口误时间线 <b>26</b></a>
+          <a class="cat" href="/#featured">电商页面改动留痕 <b>37</b></a>
+          <a class="cat" href="/#featured">发布会口径差异 <b>19</b></a>
+          <a class="cat" href="/#featured">截图原件鉴定 <b>52</b></a>
+          <a class="cat" href="/#featured">二手转述溯源 <b>24</b></a>
+          <a class="cat" href="/#featured">声明稿措辞分析 <b>31</b></a>
+          <a class="cat" href="/#featured">反证栏写法 <b>17</b></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="sec" id="deep">
+        <div class="sec-head">
+          <h2>深度解析</h2>
+          <p>唯一主体阅读区 · 约 1200 字</p>
+        </div>
+        <article class="article">
+          <h2>证据链长度不等于可信度：386 份作品的分布告诉了什么</h2>
+          <div class="meta">
+            <span>评审观察</span><span>2026-11-06</span><span>依据第 12—14 季公开评分表</span>
+          </div>
+
+          <p>把第 14 季 386 份作品的原始链接数按 5 条一格分组，会看到一个反直觉的分布：附 16 条以上链接的 34 份作品，平均分 71.4；附 6 至 10 条的 158 份，平均分 78.2。链接最多的那一档，反而低了近 7 分。</p>
+
+          <h3>一、链接多但结论散的典型样本</h3>
+          <p>编号 B-309 的作品可作对照。作者提交了 23 条链接，覆盖微博、抖音、小红书、电商页面四个平台，但结论段落只写了 4 行，没有任何一段标注「对应第几条」。评审在打分表「结论与证据对应」一栏给 6 分（满分 15）。同一份材料如果是 9 条链接、每段结论后标编号，按第 13 季同类作品的得分区间，通常能到 11 至 13 分。</p>
+          <p>换句话说，堆链接是最容易做、也最容易被识破的动作。评审看的是每段判断能不能指回某条材料，链接总数只影响「覆盖度」这一项的 5 分。</p>
+
+          <blockquote>评审备注原文（第 14 季打分表附注第 7 条）：「材料数量足够但无法定位关键节点者，时间线项不超过 8 分。」时间线满分 20。</blockquote>
+
+          <h3>二、反证栏与最终得分的相关性</h3>
+          <p>第 14 季反证栏权重提到 8 分后，写满两条不利材料并说明理由的作品有 61 份，平均分 82.6；反证栏空着或只写「暂未发现」的 325 份，平均分 73.1。差 9.5 分，其中约 5 分来自反证项本身，另外 4 分多来自评审对「证据链 40 分」一栏的连带判断：愿意列反证的作者，通常也更愿意把不利时间点标出来。</p>
+          <p>这个相关性不能直接当成因果。写反证栏的人本来就可能是经验更多的选手，第 13 季参赛过的 44 名选手中，有 31 人在第 14 季填了完整反证栏，比例远高于首次参赛者。所以更稳妥的说法是：反证栏能筛出有经验的整理者，未必是它本身提高了材料质量。</p>
+
+          <h3>三、可核对结构：三类材料的判分口径</h3>
+          <p>下面这张表来自第 14 季评分细则第 4 版，可直接对照自己的材料包逐项自查。</p>
+          <table class="verify">
+            <thead>
+              <tr><th>材料类型</th><th>是否计入交叉引用</th><th>得分上限</th><th>常见扣分点</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>带状态栏原始截图</td>
+                <td class="yes">计入</td>
+                <td>证据链 40 分内</td>
+                <td>未标截取时间，无法与发布时间对齐</td>
+              </tr>
+              <tr>
+                <td>二次转发截图</td>
+                <td class="part">折半计入</td>
+                <td>单项不超过 8 分</td>
+                <td>把转发图当原件，未注明转发路径</td>
+              </tr>
+              <tr>
+                <td>纯文字转述</td>
+                <td class="no">不计入</td>
+                <td>仅用于反证栏</td>
+                <td>转述中混入作者自己的判断词</td>
+              </tr>
+              <tr>
+                <td>平台页面存档链接</td>
+                <td class="yes">计入</td>
+                <td>证据链 40 分内</td>
+                <td>存档时间晚于事件发生，无法证明当时状态</td>
+              </tr>
+              <tr>
+                <td>录屏（含操作路径）</td>
+                <td class="yes">计入</td>
+                <td>证据链 40 分内</td>
+                <td>录屏从搜索页开始，暴露了筛选偏好</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>四、一处被误读的说法</h3>
+          <p>第 13 季结束后，有选手在复盘里写「评审偏爱时间线长的作品」。核对第 13 季前 10 名的覆盖跨度：最短 6 天，最长 34 天，中位数 13 天；第 14 季前 10 名中位数 12 天。跨度长并没有换来更高分。真正稳定出现在高分区间的，是「关键节点标注密度」——每 3 天内至少有一个带编号的证据节点。前 10 名作品的节点密度在 0.42 到 0.71 之间，后 100 名多在 0.2 以下。</p>
+          <p>所以对下一轮选手，可操作的结论只有一条：与其去凑更多天的材料，不如把已有材料里的每个时间点标上编号，并保证 72 小时内有节点。</p>
+        </article>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="sec" id="guide">
+        <div class="sec-head">
+          <h2>参赛体验指南</h2>
+          <p>从选题到提交的 5 个步骤</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h3>选题先看有没有原始材料</h3>
+            <p>优先选平台官方账号发布的内容，其次选带账号主页路径的截图。只有聊天记录转述、没有时间戳的事件，整理成本会翻倍。第 14 季选题池里 18 个事件中有 11 个附了官方账号链接。</p>
+            <div class="meta"><span class="badge badge-neutral">第 1 步</span><span>约 1 天</span></div>
+          </div>
+          <div class="step">
+            <h3>建一张带编号的证据表</h3>
+            <p>每条材料给一个编号，写清平台、账号名、发布时间、截取方式。评审实际看的是这张表，结论段只是它的摘要。表格用 5 列就够，多余的列会拖慢复核速度。</p>
+            <div class="meta"><span class="badge badge-neutral">第 2 步</span><span>约 2 天</span></div>
+          </div>
+          <div class="step">
+            <h3>把时间线压到 3 天一格</h3>
+            <p>跨度超过 20 天的事件，按 3 天一段切分，每段至少一个编号节点。第 14 季节点密度 0.71 的 B-187，整份作品只有 12 个节点，但全部对得上日期。</p>
+            <div class="meta"><span class="badge badge-neutral">第 3 步</span><span>约 1 天</span></div>
+          </div>
+          <div class="step">
+            <h3>写反证栏，主动列两条不利材料</h3>
+            <p>两条即可，关键是说明为什么它们没有推翻结论：时间晚于事件、来源等级低、与核心节点不构成冲突。写「暂未发现」等于放弃 8 分。</p>
+            <div class="meta"><span class="badge badge-neutral">第 4 步</span><span>约半天</span></div>
+          </div>
+          <div class="step">
+            <h3>按格式清单自查后提交</h3>
+            <p>附件不超过 20MB，结论段不超过 800 字，每条判断后标注证据编号。11 月 5 日 23:47 之后的退回记录显示，超限是最常见的失败原因。</p>
+            <div class="meta"><span class="badge badge-neutral">第 5 步</span><span>约 2 小时</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 路径对照 -->
+      <section class="sec" id="compare">
+        <div class="sec-head">
+          <h2>两种参赛路径对照</h2>
+          <p>新选手与复赛选手的材料组织差异</p>
+        </div>
+        <div class="compare">
+          <div class="col-a">
+            <h3><span class="badge badge-ok">路径 A</span>首次参赛</h3>
+            <ul>
+              <li>选题池里挑官方账号活跃的事件，原始材料现成</li>
+              <li>证据表 5 列，编号从 01 开始，按时间排</li>
+              <li>结论 400 字左右，每段标一处编号</li>
+              <li>反证栏写两条：一条来源低、一条时间晚</li>
+              <li>目标分数区间 70—78</li>
+            </ul>
+          </div>
+          <div class="col-b">
+            <h3><span class="badge">路径 B</span>复赛选手</h3>
+            <ul>
+              <li>自选事件，需额外说明材料为何公开可查</li>
+              <li>证据表加「转述链」一列，标注二手来源路径</li>
+              <li>结论 700 字，含一处对流行说法的反驳</li>
+              <li>反证栏写三条，其中一条涉及自身立场</li>
+              <li>目标分数区间 82—90</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8 FAQ -->
+      <section class="sec" id="faq">
+        <div class="sec-head">
+          <h2>常见问题</h2>
+          <p>围绕赛制、材料与评审的 6 个高频疑问</p>
+        </div>
+
+        <details class="faq" open>
+          <summary>截图原件需要满足什么条件才算原件？</summary>
+          <div class="ans">原件指从发布设备直接截取、带设备状态栏与账号主页路径的图片。仅有内容区、没有状态栏的截图判为二次转发，折半计入交叉引用。第 14 季 386 份作品中，61 份因把转发图当原件被扣分。</div>
+        </details>
+        <details class="faq">
+          <summary>反证栏写什么内容不会被判为跑题？</summary>
+          <div class="ans">写与主结论相冲突、但可解释的材料。比如一条时间更晚的官方回应，或一条来源等级低但与核心节点无关的转述。写「暂未发现不利材料」不计分，写与结论无关的其他事件算跑题。</div>
+        </details>
+        <details class="faq">
+          <summary>评审如何区分事实、回应、转述和推测？</summary>
+          <div class="ans">看材料的发布主体与时间戳。官方账号发布为事实层，当事人回应单独成栏，转述需注明路径，推测必须标「推测」二字且不计入结论分。第 14 季评分表把这四类分开计分，混写会拉低证据链得分。</div>
+        </details>
+        <details class="faq">
+          <summary>事件发生超过 30 天还能参赛吗？</summary>
+          <div class="ans">可以。跨度限制只针对时间线的节点密度，不限制事件本身。第 14 季最长覆盖 41 天的 B-221 拿到 81 分，关键在于 3 天内有编号节点，而非事件新鲜度。</div>
+        </details>
+        <details class="faq">
+          <summary>初筛淘汰最常见的原因是哪两种？</summary>
+          <div class="ans">原始链接少于 5 条，以及结论段没有标注证据编号。第 14 季 294 份未进复审的作品中，这两类合计占 58%。另有 9 份因附件超 20MB 在提交环节直接退回。</div>
+        </details>
+        <details class="faq">
+          <summary>选手可以匿名提交吗？</summary>
+          <div class="ans">可以。提交时选择「匿名展示」，榜单只显示作品编号，不显示账号名。但评审复核环节仍需真实联系方式，用于补交材料时通知，这一信息不进入公开页面。</div>
+        </details>
+      </section>
+
+      <!-- 9 用户评论 -->
+      <section class="sec" id="comments">
+        <div class="sec-head">
+          <h2>用户评论</h2>
+          <p>来自投稿者与观众的 5 条留言</p>
+        </div>
+        <div class="cmts">
+          <div class="cmt">
+            <div class="cmt-top">
+              <span class="avatar" style="background:#b8862b" aria-hidden="true">周</span>
+              <b>周叙白</b><span>11-07 · 第 14 季选手</span>
+            </div>
+            <p>B-104 那份时间线我照着做了一遍，卡在「电商页面下架」这一步：截图有，但页面存档链接晚了两天，按表格只能算二次材料。这个坑写得很实在。</p>
+            <span class="ref">指向作品 B-104</span>
+          </div>
+          <div class="cmt">
+            <div class="cmt-top">
+              <span class="avatar" style="background:#2f6b4f" aria-hidden="true">许</span>
+              <b>许未名</b><span>11-07 · 观众</span>
+            </div>
+            <p>感觉现在一半作品都在写代言解约，频道里 48 份选题重复度太高。客服话术那 33 份反而更好看，至少每份的对话细节不重样。</p>
+          </div>
+          <div class="cmt">
+            <div class="cmt-top">
+              <span class="avatar" style="background:#8c3b2f" aria-hidden="true">陈</span>
+              <b>陈拾</b><span>11-06 · 复赛选手</span>
+            </div>
+            <p>不同意「链接多反而分低」这个说法。我看过 B-309，问题不在 23 条链接，而在结论只有 4 行。链接多的作品如果每段都标编号，第 13 季的 B-051 就是 88 分。</p>
+            <span class="ref">指向作品 B-309 与 B-051</span>
+          </div>
+          <div class="cmt">
+            <div class="cmt-top">
+              <span class="avatar" style="background:#3d4557" aria-hidden="true">梁</span>
+              <b>梁舟</b><span>11-05 · 观众</span>
+            </div>
+            <p>反证栏那条相关性讲得还行，至少没直接下因果结论。但我觉得更大的变量是参赛次数，第一次参赛的人连表格几列都不知道。</p>
+          </div>
+          <div class="cmt">
+            <div class="cmt-top">
+              <span class="avatar" style="background:#7a5a17" aria-hidden="true">沈</span>
+              <b>沈知微</b><span>11-04 · 第 14 季选手</span>
+            </div>
+            <p>B-263 的客服对话我核过一遍，第三段和第四段之间缺了一次转接，作者没写。这处要是补上，87 分还能再高一点。</p>
+            <span class="ref">指向作品 B-263</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 相关资讯 -->
+      <section class="sec" id="news">
+        <div class="sec-head">
+          <h2>相关资讯</h2>
+          <p>赛制、平台与材料形态的周边动态</p>
+        </div>
+        <div class="news">
+          <ul>
+            <li>
+              <a href="/#deep">评分细则第 4 版全文解读：40 / 20 / 15 / 8 的分配逻辑</a>
+              <p>11-03 发布 · 证据链与时间线的权重比从 43:20 调整为 40:20，反证栏独立成项。</p>
+            </li>
+            <li>
+              <a href="/#guide">附件上限维持 20MB，超限退回占提交失败的 22%</a>
+              <p>11-05 统计 · 9 份退回作品中 7 份是压缩包内嵌视频导致体积超标。</p>
+            </li>
+            <li>
+              <a href="/#faq">平台页面存档工具对比：三种存档方式的时间戳可信度</a>
+              <p>10-26 整理 · 存档时间晚于事件发生时，仍可计入但需注明时间差。</p>
+            </li>
+            <li>
+              <a href="/#rank">第 13 季前十名复盘：节点密度均值 0.54</a>
+              <p>10-24 回顾 · 跨度中位数 13 天，最短 6 天的作品排第 4。</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 11 榜单 -->
+      <section class="sec" id="rank">
+        <div class="sec-head">
+          <h2>综合榜单</h2>
+          <p>第 14 季复审前六名（按初筛评分）</p>
+        </div>
+        <div class="rank">
+          <ol>
+            <li>
+              <div>
+                <h3>代言解约时间线：从官宣到撤稿的 9 天</h3>
+                <p>编号 B-104 · 92 分 · 证据 18 条 · 节点密度 0.68</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>截图层级判定：三张图里哪张能当原件</h3>
+                <p>编号 B-187 · 89 分 · 证据 12 条 · 节点密度 0.71</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>售后扯皮案：客服话术的三次改动</h3>
+                <p>编号 B-263 · 87 分 · 证据 14 条 · 节点密度 0.55</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>账号内容抄袭认定的四个比对维度</h3>
+                <p>编号 B-142 · 86 分 · 证据 15 条 · 节点密度 0.49</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>发布会口径差异：两版声明的措辞替换</h3>
+                <p>编号 B-276 · 84 分 · 证据 9 条 · 节点密度 0.61</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>直播口误的 41 天追踪：节点比跨度重要</h3>
+                <p>编号 B-221 · 81 分 · 证据 11 条 · 节点密度 0.44</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 12 相关推荐 -->
+      <section class="sec" id="tags">
+        <div class="sec-head">
+          <h2>相关推荐</h2>
+          <p>按具体条目与做法检索的入口</p>
+        </div>
+        <div class="tags">
+          <a href="/#deep">截图原件鉴定</a>
+          <a href="/#guide">反证栏写法</a>
+          <a href="/#deep">节点密度计算</a>
+          <a href="/#featured">代言解约时间线</a>
+          <a href="/#featured">客服话术对比</a>
+          <a href="/#guide">证据表 5 列结构</a>
+          <a href="/#faq">二手转述溯源</a>
+          <a href="/#news">页面存档时间差</a>
+          <a href="/#rank">第 13 季前十复盘</a>
+          <a href="/#faq">匿名提交规则</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- 页脚 -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="fbrand">
+          <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2c3448"/>
+            <path d="M18 46 30 18h6l12 28h-7l-2.4-6H27.4L25 46z" fill="#e8b04b"/>
+            <circle cx="32" cy="34" r="3" fill="#e8b04b"/>
+          </svg>
+          <b>黑料大赛</b>
+        </div>
+        <p>公开争议事件的证据整理竞赛，评审只看材料能否被复核，不评立场。</p>
+        <div class="sample">示例数据说明：本页作品编号、评分、选手昵称与日期均为演示用示例，非真实参赛记录。文中所列时间与规则以页面标注的 2026 年 11 月赛程为参考。</div>
+      </div>
+      <div>
+        <h4>赛程栏目</h4>
+        <a href="/#overview">赛事概览</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#rank">综合榜单</a>
+        <a href="/#news">相关资讯</a>
+      </div>
+      <div>
+        <h4>材料与做法</h4>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#compare">路径对照</a>
+        <a href="/#faq">常见问题</a>
+      </div>
+      <div>
+        <h4>互动与索引</h4>
+        <a href="/#featured">精选作品</a>
+        <a href="/#channels">频道索引</a>
+        <a href="/#comments">用户评论</a>
+        <a href="/#tags">相关推荐</a>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <span>© 2026 黑料大赛 · 页面最后更新 2026-11-08，对应正文「初筛结果公示」与「撤回重投通道关闭」两条记录。</span>
+      <span>站内检索为本地匹配，不联网请求。</span>
+    </div>
+  </div>
+</footer>
+
+<button class="top-btn" id="topBtn" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动端菜单 */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('siteNav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.setAttribute('aria-label', open ? '收起导航菜单' : '展开导航菜单');
+    });
+    nav.addEventListener('click', function(e){
+      if (e.target.tagName === 'A' && window.innerWidth <= 760) {
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-label', '展开导航菜单');
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.focus();
+      }
+    });
+  }
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('topBtn');
+  function onScroll(){
+    if (window.scrollY > 420) { topBtn.classList.add('show'); }
+    else { topBtn.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  topBtn.addEventListener('click', function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+  });
+
+  /* 侧栏滚动高亮 */
+  var sideLinks = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var sections = sideLinks.map(function(a){
+    var id = a.getAttribute('href').split('#')[1];
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) {
+          sideLinks.forEach(function(a){
+            a.classList.toggle('active', a.getAttribute('href').indexOf('#' + en.target.id) > -1);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  /* 本地搜索 */
+  var q = document.getElementById('q');
+  var fb = document.getElementById('fb');
+  var index = [
+    {t:'代言解约时间线 从官宣到撤稿的 9 天', id:'featured'},
+    {t:'截图层级判定 三张图里哪张能当原件', id:'featured'},
+    {t:'售后扯皮案 客服话术的三次改动', id:'featured'},
+    {t:'证据链长度不等于可信度 深度解析', id:'deep'},
+    {t:'三类材料的判分口径 证据表', id:'deep'},
+    {t:'反证栏写法 两条不利材料', id:'guide'},
+    {t:'节点密度 3 天一格', id:'guide'},
+    {t:'截图原件需要满足什么条件', id:'faq'},
+    {t:'匿名提交规则', id:'faq'},
+    {t:'初筛淘汰最常见的原因', id:'faq'},
+    {t:'第 14 季初筛结果公示 92 份', id:'latest'},
+    {t:'评分细则第 4 版 反证栏 8 分', id:'latest'},
+    {t:'综合榜单 B-104 92 分', id:'rank'},
+    {t:'用户评论 B-309 链接 23 条', id:'comments'},
+    {t:'频道索引 客服话术对比', id:'channels'},
+    {t:'路径对照 首次参赛与复赛选手', id:'compare'}
+  ];
+  function esc(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function runSearch(){
+    var v = (q.value || '').trim();
+    if (!v) { fb.classList.remove('show'); fb.innerHTML=''; return; }
+    var hits = index.filter(function(it){ return it.t.toLowerCase().indexOf(v.toLowerCase()) > -1; });
+    if (!hits.length) {
+      fb.classList.add('show');
+      fb.innerHTML = '未找到与「<b>' + esc(v) + '</b>」匹配的条目，可试试「反证栏」「截图原件」「榜单」等关键词。';
+      return;
+    }
+    fb.classList.add('show');
+    fb.innerHTML = '匹配 ' + hits.length + ' 条：' + hits.slice(0,3).map(function(it){
+      return '<a href="/#' + it.id + '" style="color:#1f2433;text-decoration:underline">' + esc(it.t) + '</a>';
+    }).join(' · ') + (hits.length > 3 ? ' 等' : '');
+  }
+  if (q && fb) {
+    var timer = null;
+    q.addEventListener('input', function(){
+      clearTimeout(timer);
+      timer = setTimeout(runSearch, 160);
+    });
+    q.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') { q.value=''; fb.classList.remove('show'); fb.innerHTML=''; }
+    });
+    document.addEventListener('click', function(e){
+      if (!e.target.closest('.search')) { fb.classList.remove('show'); }
+    });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "黑料大赛",
+  "description": "围绕公开争议事件证据整理的竞赛，含赛制规则、评分维度、参赛作品与读者评论。",
+  "inLanguage": "zh-CN",
+  "keywords": "黑料大赛"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "截图原件需要满足什么条件才算原件？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "原件指从发布设备直接截取、带设备状态栏与账号主页路径的图片。仅有内容区、没有状态栏的截图判为二次转发，折半计入交叉引用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "反证栏写什么内容不会被判为跑题？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "写与主结论相冲突、但可解释的材料，例如时间更晚的官方回应，或来源等级低但与核心节点无关的转述。写「暂未发现不利材料」不计分。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "评审如何区分事实、回应、转述和推测？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "看材料的发布主体与时间戳。官方账号发布为事实层，当事人回应单独成栏，转述需注明路径，推测必须标明且不计入结论分。四类分开计分，混写会拉低证据链得分。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "事件发生超过 30 天还能参赛吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。跨度限制只针对时间线的节点密度，不限制事件本身。第 14 季最长覆盖 41 天的作品拿到 81 分，关键在于 3 天内有编号节点。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "初筛淘汰最常见的原因是哪两种？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "原始链接少于 5 条，以及结论段没有标注证据编号。第 14 季未进复审的作品中，这两类合计占 58%。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "选手可以匿名提交吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。提交时选择匿名展示，榜单只显示作品编号。评审复核仍需真实联系方式用于通知补交材料，不进入公开页面。"
+      }
+    }
+  ]
+}
+</script>
+</body>
+          </html>
